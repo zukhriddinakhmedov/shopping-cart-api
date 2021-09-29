@@ -1,17 +1,16 @@
 import express from "express"
-
 import cors from "cors"
+import { connectDB } from "./db/index.js"
 
 
 const server = express()
 
-const { PORT } = process.env
+const { PORT = 5000 } = process.env
 
 server.use(cors())
 
 server.use(express.json())
 
-server.use()
 
 
 server.listen(PORT, async () => {
