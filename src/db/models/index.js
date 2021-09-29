@@ -1,23 +1,13 @@
-import express from "express"
-import cors from "cors"
+import Review from "./reviews.js";
+import Product from "./products.js";
 
+/* schema
+1-choose the type of relationship
+2-first i need to understand what methods to use for this specific type of relationship;
+3-understand for each association which model  is TARGET and which model is SOURCE 
+*/
 
-const server = express()
+Product.hasMany(Review)
+Review.belongsTo(Product)
 
-const { PORT } = process.env
-
-server.use(cors())
-
-server.use(express.json())
-
-server.use()
-
-
-server.listen(PORT, async () => {
-    await connectDB()
-    console.log(`Server is listening on port ${PORT}`)
-})
-
-server.on("error", (error) => {
-    console.log("Server is stopped", error)
-})
+export default { Review, Product }
