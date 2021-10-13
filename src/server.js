@@ -1,7 +1,8 @@
 import express from "express"
 import cors from "cors"
 import { connectDB } from "./db/index.js"
-
+import productsRouter from "./services/products/index.js"
+import reviewsRouter from "./services/products/index.js"
 
 const server = express()
 
@@ -11,7 +12,8 @@ server.use(cors())
 
 server.use(express.json())
 
-
+server.use("/products", productsRouter)
+server.use("/reviews", reviewsRouter)
 
 server.listen(PORT, async () => {
     await connectDB()
